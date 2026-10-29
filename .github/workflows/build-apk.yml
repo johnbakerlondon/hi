@@ -39,7 +39,8 @@ jobs:
           # because the bundled Linux system image has that path baked in.
           sed -i 's|<string name="app_name">Winlator</string>|<string name="app_name">Far Cry 2</string>|' \
             winlator-app/app/src/main/res/values/strings.xml
-          echo "android.suppressUnsupportedCompileSdk=35" >> winlator-app/gradle.properties
+          printf '\nandroid.suppressUnsupportedCompileSdk=35\n' >> winlator-app/gradle.properties
+          cat winlator-app/gradle.properties
 
       - name: Set up Gradle 8.9
         uses: gradle/actions/setup-gradle@v4
